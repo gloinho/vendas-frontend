@@ -44,14 +44,18 @@ export default function Cadastro(){
             .then(response => response.json())
             .then(message => setMessage(message))
     }
-
-    function ErrorMessage(props){
-      return Object.keys(message).map((key) => <div key={key}className="alert alert-danger" role="alert">{key}: {message[key]}</div>)  
+    console.log(message)
+    function SubmitMessage(){
+      return Object.keys(message).map((key) => {
+        return key === 'success' ? <div key={key} className="alert alert-success" role="alert">{key}: {message[key]}</div>:
+        <div key={key} className="alert alert-danger" role="alert">{key}: {message[key]}</div>
+        
+      })  
     }
 
     return(
       <React.StrictMode>
-        {message && <ErrorMessage/>}
+        {message && <SubmitMessage/>}
         <h1>Novo Produto</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
