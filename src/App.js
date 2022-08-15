@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Cadastro from './components/Cadastro'
+import FiltrarProdutos from './components/FiltrarProdutos'
+import NavBar from './components/NavBar'
+import TodosOsProdutos from './components/TodosOsProdutos'
 
-function App() {
+export default function App () {
+  const [views, setViews] = React.useState({
+    'cadastro':false,
+    'todos':true,
+    'filtros':false
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <React.StrictMode>
+      <NavBar setviews = {setViews}/>
+      {views.cadastro && <Cadastro/>}
+      {views.todos && <TodosOsProdutos/>}
+      {views.filtros && <FiltrarProdutos/>}
+    </React.StrictMode>
+  )
 }
-
-export default App;
