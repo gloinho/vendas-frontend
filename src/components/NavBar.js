@@ -7,21 +7,12 @@ export default function NavBar(props){
             props.setviews({
                 'cadastro':true,
                 'todos':false,
-                'filtros':false
             })
         }
         else if(name === 'todos-produtos'){
             props.setviews({
                 'cadastro':false,
                 'todos':true,
-                'filtros':false
-            })
-        }
-        else if(name === 'filtros'){
-            props.setviews({
-                'cadastro':false,
-                'todos':false,
-                'filtros':true
             })
         }
     }
@@ -35,10 +26,6 @@ export default function NavBar(props){
             <li className='nav-item'>
                 <button name ="todos-produtos" className='nav-link' onClick={(event)=>changeView(event)}>Todos os Produtos</button>
             </li>
-            <li className='nav-item'>
-                <button name="filtros" className='nav-link' onClick={(event)=>changeView(event)}>Filtrar Produtos</button>
-            </li>
-
         </ul>
     </nav>
 }
