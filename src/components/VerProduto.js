@@ -4,7 +4,16 @@ import EditarProduto from './EditarProduto'
 export default function VerProduto(props){
     const [produto, setProduto] = React.useState(null)
     const [editando, setEditando] = React.useState(false)
-
+    
+    function verEstoque(){
+        props.verestoque(prevVerEstoque => {
+            return {
+                ...prevVerEstoque,
+                "verproduto":null,
+                "verestoque":props.produto
+            }
+        })
+    }
     React.useEffect(()=> {
         fetch(`http://localhost:8000/api/produto/${props.produto}`)
         .then(response => response.json())
@@ -21,7 +30,10 @@ export default function VerProduto(props){
             <p className="card-text">Unidade de Venda: {produto.unidade_de_venda}</p>
             <p className="card-text">Data de Cadastro: {produto.data_de_cadastro}</p>
             <p className="card-text">Ultima Atualização: {produto.ultima_atualizacao}</p>
-            <button onClick={()=>setEditando(prevEditando => !prevEditando)} className="btn btn-primary">Editar Produto</button>
+            <div class="btn-group" role="group" aria-label="Opções de Produto">
+                <button onClick={()=>setEditando(prevEditando => !prevEditando)} className="btn btn-primary">Editar Produto</button>
+                <button onClick={()=>verEstoque()} className="btn btn-warning">Ver Estoque</button>
+            </div>
         </div>
     </div>
     </div>
