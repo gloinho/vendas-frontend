@@ -1,7 +1,8 @@
 import React from 'react'
 
 export default function EditarProduto(props){
-    const [edit, setEdit] = React.useState({})
+    const [edit, setEdit] = React.useState(null)
+    const [message, setMessage] = React.useState(null)
 
     function handleChange(event){
         const {name, type, value, checked} = event.target
@@ -15,44 +16,78 @@ export default function EditarProduto(props){
     }
     function handleSubmit(event){
         event.preventDefault()
-        props.setEditando(prevSetEditando => !prevSetEditando)
         fetch(`http://localhost:8000/api/produto/${props.produtoid}`,{
             method:'PUT',
             body: JSON.stringify(edit),
             headers:{"Content-Type":"application/json"},
         })
         .then(response => response.json())
-        .then(message => console.log(message))
+        .then(message => setMessage(message))
     }
 
-
+    function SubmitMessage(){
+        return Object.keys(message).map((key) => {
+          return key === 'success' ? <div key={key} className="alert alert-success" role="alert">{key}: {message[key]}</div>:
+          key === 'non_field_errors' ? <div key={key} className="alert alert-warning" role="alert">Produto inalterado.</div>:
+          <div key={key} className="alert alert-danger" role="alert">{key}: {message[key]}</div>
+        })  
+    }
     return props.produtoobj &&
     <React.StrictMode>
     <h1>Editar Produto</h1>
+    {message && <SubmitMessage/>}
     <form onSubmit={handleSubmit}>
         <div className="input-group mb-3">
             <div className="input-group-prepend">
                 <span className="input-group-text">Nome do Produto</span>
             </div>
-            <input onChange={handleChange} name="nome" type="text" className="form-control" aria-label="Nome do Produto" aria-describedby="basic-addon1" placeholder={props.produtoobj.nome}></input>
+            <input 
+            onChange={handleChange} 
+            name="nome" 
+            type="text" 
+            className="form-control" 
+            aria-label="Nome do Produto" 
+            aria-describedby="basic-addon1" 
+            placeholder={props.produtoobj.nome}></input>
         </div>
         <div className="input-group mb-3">
             <div className="input-group-prepend">
                 <span className="input-group-text">Código de Barras</span>
             </div>
-            <input onChange={handleChange} name="codigo_de_barras" type="number" className="form-control" aria-label="Código de Barras" aria-describedby="basic-addon1" placeholder={props.produtoobj.codigo_de_barras}></input>
+            <input 
+            onChange={handleChange} 
+            name="codigo_de_barras" 
+            type="number" 
+            className="form-control" 
+            aria-label="Código de Barras" 
+            aria-describedby="basic-addon1" 
+            placeholder={props.produtoobj.codigo_de_barras}></input>
         </div>
         <div className="input-group mb-3">
             <div className="input-group-prepend">
                 <span className="input-group-text">Preço de Venda</span>
             </div>
-            <input onChange={handleChange}  name="preco_de_venda" type="number" className="form-control" aria-label="Preço de Venda" aria-describedby="basic-addon1" placeholder={props.produtoobj.preco_de_venda}></input>
+            <input 
+            onChange={handleChange}  
+            name="preco_de_venda" 
+            type="number" 
+            className="form-control" 
+            aria-label="Preço de Venda" 
+            aria-describedby="basic-addon1" 
+            placeholder={props.produtoobj.preco_de_venda}></input>
         </div>
         <div className="input-group mb-3">
             <div className="input-group-prepend">
                 <span className="input-group-text">Preço de Custo</span>
             </div>
-            <input onChange={handleChange}  name="preco_de_custo" type="number" className="form-control" aria-label="Preço de Custo" aria-describedby="basic-addon1" placeholder={props.produtoobj.preco_de_custo}></input>
+            <input 
+            onChange={handleChange}  
+            name="preco_de_custo" 
+            type="number" 
+            className="form-control" 
+            aria-label="Preço de Custo" 
+            aria-describedby="basic-addon1" 
+            placeholder={props.produtoobj.preco_de_custo}></input>
         </div>
         <div className="input-group mb-3">
             <div className="form-check form-check-inline">
