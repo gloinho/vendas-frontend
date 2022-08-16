@@ -7,12 +7,14 @@ export default function NavBar(props){
             props.setviews({
                 'cadastro':true,
                 'todos':false,
+                'verproduto':false,
             })
         }
         else if(name === 'todos-produtos'){
             props.setviews({
                 'cadastro':false,
                 'todos':true,
+                'verproduto':false,
             })
         }
     }
