@@ -47,9 +47,8 @@ export default function Cadastro(){
 
     function SubmitMessage(){
       return Object.keys(message).map((key) => {
-        return key === 'success' ? <div key={key} className="alert alert-success" role="alert">{key}: {message[key]}</div>:
+        return key === 'success' ? <div key={key} className="alert alert-success" role="alert">Produto cadastrado com sucesso.</div>:
         <div key={key} className="alert alert-danger" role="alert">{key}: {message[key]}</div>
-        
       })  
     }
 
@@ -195,7 +194,8 @@ export default function Cadastro(){
               className='form-control' 
               id="estoque_inicial" 
               name="estoque_inicial"
-              value="0"></input>
+              placeholder="0"
+              min="0"></input>
             </div>
           </div>
           <button className="btn btn-primary mb-2">Cadastrar Produto</button>

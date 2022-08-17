@@ -27,7 +27,7 @@ export default function EditarProduto(props){
 
     function SubmitMessage(){
         return Object.keys(message).map((key) => {
-          return key === 'success' ? <div key={key} className="alert alert-success" role="alert">{key}: {message[key]}</div>:
+          return key === 'success' ? <div key={key} className="alert alert-success" role="alert">Produto Editado.</div>:
           key === 'non_field_errors' ? <div key={key} className="alert alert-warning" role="alert">Produto inalterado.</div>:
           <div key={key} className="alert alert-danger" role="alert">{key}: {message[key]}</div>
         })  
@@ -74,7 +74,8 @@ export default function EditarProduto(props){
             className="form-control" 
             aria-label="Preço de Venda" 
             aria-describedby="basic-addon1" 
-            placeholder={props.produtoobj.preco_de_venda}></input>
+            placeholder={props.produtoobj.preco_de_venda}
+            min="0"></input>
         </div>
         <div className="input-group mb-3">
             <div className="input-group-prepend">
@@ -87,7 +88,8 @@ export default function EditarProduto(props){
             className="form-control" 
             aria-label="Preço de Custo" 
             aria-describedby="basic-addon1" 
-            placeholder={props.produtoobj.preco_de_custo}></input>
+            placeholder={props.produtoobj.preco_de_custo}
+            min="0"></input>
         </div>
         <div className="input-group mb-3">
             <div className="form-check form-check-inline">

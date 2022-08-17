@@ -18,7 +18,7 @@ export default function TodosOsProdutos(props){
             .then(response => response.json())
             .then(data => setProdutos(data))
     },[])
-
+    console.log(produtos)
     return <div>
         <FiltrarProdutos setProdutos={setProdutos}/>
         {produtos && produtos.map(({id, nome, codigo_de_barras,data_de_cadastro})=> 
