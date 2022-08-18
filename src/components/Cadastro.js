@@ -38,8 +38,8 @@ export default function Cadastro(){
 
         fetch('http://localhost:8000/api/cadastro', {
             method:'POST',
+            body: JSON.stringify(formData),
             headers:{"Content-Type":"application/json"},
-            body: JSON.stringify(formData)
         })
             .then(response => response.json())
             .then(message => setMessage(message))
