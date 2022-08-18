@@ -21,7 +21,7 @@ export default function TodosOsProdutos(props){
     return <div>
         <FiltrarProdutos setProdutos={setProdutos}/>
         {produtos && produtos.map(({id, nome, codigo_de_barras,data_de_cadastro})=> 
-        <div className="card mt-3" key={id}>
+        <div className="card ms-3 mt-3 me-3" key={id}>
         <div className="card-body">
             <h5 className="card-title">{nome}</h5>
             <p className="card-text">Código de Barras: {codigo_de_barras}</p>
