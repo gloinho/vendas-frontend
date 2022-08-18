@@ -28,7 +28,8 @@ export default function FiltrarProdutos(props){
         })
     }
 
-    return <form onSubmit={handleSubmit}>
+    return <form onSubmit={handleSubmit} className="ms-3 me-3 mt-3">
+            <h5>Filtrar por:</h5>
             <div className="input-group mb-3">
                 <div className="input-group-prepend">
                     <span className="input-group-text" id="basic-addon1">Nome do Produto</span>
@@ -68,6 +69,5 @@ export default function FiltrarProdutos(props){
                 <input onChange={handleChange} name="estoque__ultima_saida__lt" type="date" className="form-control" aria-label="Até" aria-describedby="basic-addon1"></input>
              </div>
             <button  className="btn btn-outline-secondary" type="submit">Pesquisar</button> 
-
         </form>
 }
