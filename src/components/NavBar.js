@@ -8,6 +8,8 @@ export default function NavBar(props){
                 'cadastro':true,
                 'todos':false,
                 'verproduto':false,
+                'gerenciarestoques':false,
+                'ajustarestoque':false
             })
         }
         else if(name === 'todos-produtos'){
@@ -15,6 +17,17 @@ export default function NavBar(props){
                 'cadastro':false,
                 'todos':true,
                 'verproduto':false,
+                'gerenciarestoques':false,
+                'ajustarestoque':false
+            })
+        }
+        else if(name === 'gerenciar-estoques'){
+            props.setviews({
+                'cadastro':false,
+                'todos':false,
+                'verproduto':false,
+                'gerenciarestoques':true,
+                'ajustarestoque':false
             })
         }
     }
@@ -26,7 +39,10 @@ export default function NavBar(props){
                 <button name="novo-produto" className='nav-link' onClick={(event)=>changeView(event)}>Cadastrar Novo Produto</button>
             </li>
             <li className='nav-item'>
-                <button name ="todos-produtos" className='nav-link' onClick={(event)=>changeView(event)}>Todos os Produtos</button>
+                <button name ="todos-produtos" className='nav-link ms-3' onClick={(event)=>changeView(event)}>Todos os Produtos</button>
+            </li>
+            <li className='nav-item'>
+                <button name ="gerenciar-estoques" className='nav-link ms-3' onClick={(event)=>changeView(event)}>Gerenciar Estoques</button>
             </li>
         </ul>
     </nav>

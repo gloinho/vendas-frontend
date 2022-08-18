@@ -18,11 +18,10 @@ export default function TodosOsProdutos(props){
             .then(response => response.json())
             .then(data => setProdutos(data))
     },[])
-    console.log(produtos)
     return <div>
         <FiltrarProdutos setProdutos={setProdutos}/>
         {produtos && produtos.map(({id, nome, codigo_de_barras,data_de_cadastro})=> 
-        <div className="card">
+        <div className="card mt-3" key={id}>
         <div className="card-body">
             <h5 className="card-title">{nome}</h5>
             <p className="card-text">Código de Barras: {codigo_de_barras}</p>

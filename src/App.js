@@ -4,13 +4,15 @@ import NavBar from './components/NavBar'
 import TodosOsProdutos from './components/TodosOsProdutos'
 import VerProduto from './components/VerProduto'
 import Estoque from './components/Estoque'
+import AjustarEstoque from './components/AjustarEstoque'
 
 export default function App () {
   const [views, setViews] = React.useState({
     'cadastro':false,
     'todos':true,
-    'verproduto':null,
-    'verestoque':null
+    'verproduto':null, /* id do produto */
+    'gerenciarestoques':null, /* id do produto para ver estoque ou boolean para ver todos os estoques*/
+    'ajustarestoque':false,
   })
 
   return (
@@ -19,7 +21,8 @@ export default function App () {
       {views.cadastro && <Cadastro/>}
       {views.todos && <TodosOsProdutos views={views} setviews={setViews}/>}
       {views.verproduto && <VerProduto produto={views.verproduto} verestoque={setViews}/>}
-      {views.verestoque && <Estoque produto={views.verestoque}/>}
+      {views.gerenciarestoques && <Estoque setViews={setViews} views={views}/>}
+      {views.ajustarestoque && <AjustarEstoque estoque={views.ajustarestoque}/>}
     </React.StrictMode>
   )
 }
