@@ -1,5 +1,5 @@
 import React from 'react'
-
+import FiltrarEstoque from './FiltrarEstoque'
 
 export default function Estoque(props){
     const [estoques, setEstoques] = React.useState(null)
@@ -22,6 +22,7 @@ export default function Estoque(props){
     },[])
     
     return <div>
+                <FiltrarEstoque setEstoques={setEstoques}/>
                 {estoques && estoques.map(({id, nome_do_produto,produto, quantidade, ultima_entrada,ultima_saida})=> 
                 <div className="card mt-3" key={id}>
                 <div className="card-body">
