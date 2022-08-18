@@ -22,7 +22,7 @@ export default function App () {
       {views.todos && <TodosOsProdutos views={views} setviews={setViews}/>}
       {views.verproduto && <VerProduto produto={views.verproduto} verestoque={setViews}/>}
       {views.gerenciarestoques && <Estoque setViews={setViews} views={views}/>}
-      {views.ajustarestoque && <AjustarEstoque estoque={views.ajustarestoque}/>}
+      {views.ajustarestoque && <AjustarEstoque estoque={views.ajustarestoque} setViews={setViews}/>}
     </React.StrictMode>
   )
 }

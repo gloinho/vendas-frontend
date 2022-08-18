@@ -32,6 +32,7 @@ export default function EditarProduto(props){
           <div key={key} className="alert alert-danger" role="alert">{key}: {message[key]}</div>
         })  
     }
+
     return props.produtoobj &&
     <React.StrictMode>
     <h1>Editar Produto</h1>
@@ -171,8 +172,9 @@ export default function EditarProduto(props){
                     checked={props.produtoobj.unidade_de_venda === "MT3"}></input>
             </div>
         </div>
-        <button className="btn btn-outline-secondary">Salvar Edições</button> 
+        <button className="btn btn-dark">Salvar Edições</button> 
     </form>
+    <button onClick={()=> props.setEditando(prevEditando => !prevEditando)}className="btn btn-secondary mt-3">Voltar</button> 
     </React.StrictMode> 
     
 }

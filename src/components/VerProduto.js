@@ -6,12 +6,12 @@ export default function VerProduto(props){
     const [editando, setEditando] = React.useState(false)
     
     function verEstoque(){
-        props.verestoque(prevVerEstoque => {
-            return {
-                ...prevVerEstoque,
-                "verproduto":null,
-                "verestoque":props.produto
-            }
+        props.verestoque({
+            'cadastro':false,
+            'todos':false,
+            'verproduto':null, 
+            'gerenciarestoques':null, 
+            'ajustarestoque': produto ? produto.estoque : null,
         })
     }
     React.useEffect(()=> {
@@ -19,7 +19,7 @@ export default function VerProduto(props){
         .then(response => response.json())
         .then(data => setProduto(data))
     }, [editando, props.produto])
-    
+
     return produto && !editando ? <div>
     <div className="card">
         <div className="card-body">
@@ -30,8 +30,10 @@ export default function VerProduto(props){
             <p className="card-text">Unidade de Venda: {produto.unidade_de_venda}</p>
             <p className="card-text">Data de Cadastro: {produto.data_de_cadastro}</p>
             <p className="card-text">Ultima Atualização: {produto.ultima_atualizacao}</p>
+            <p className="card-text">Ultima Entrada: {produto.ultima_entrada}</p>
+            <p className="card-text">Ultima Saida: {produto.ultima_saida}</p>
             <div class="btn-group" role="group" aria-label="Opções de Produto">
-                <button onClick={()=>setEditando(prevEditando => !prevEditando)} className="btn btn-primary">Editar Produto</button>
+                <button onClick={()=>setEditando(prevEditando => !prevEditando)} className="btn btn-primary me-3">Editar Produto</button>
                 <button onClick={()=>verEstoque()} className="btn btn-warning">Ver Estoque</button>
             </div>
         </div>

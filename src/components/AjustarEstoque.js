@@ -41,7 +41,7 @@ export default function AjustarEstoque(props){
         setAcao({'acao':null,'isOn':false})
         document.getElementById('quantidade').value = ''
     }
-    console.log(message)
+
     function handleClick(funcao){
         setAcao({'acao':funcao,'isOn':true})
         setAjustes({
@@ -52,6 +52,14 @@ export default function AjustarEstoque(props){
         setMessage(null)
     }
 
+    function verProduto(){
+        props.setViews({    
+        'cadastro':false,
+        'todos':false,
+        'verproduto': thisEstoque && thisEstoque.produto,
+        'gerenciarestoques':null, 
+        'ajustarestoque':false,})
+    }
     return <div>
     {thisEstoque && 
     <div className="card mt-3" key={thisEstoque.id}>
@@ -92,6 +100,8 @@ export default function AjustarEstoque(props){
     </div>
     </div>
     }
+    <button className="btn btn-primary mt-3 ms-3" onClick={verProduto} >Ver Produto</button>
+
     
     </div>
 
