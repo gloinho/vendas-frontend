@@ -32,7 +32,7 @@ export default function VerProduto(props){
             <p className="card-text">Ultima Atualização: {produto.ultima_atualizacao}</p>
             <p className="card-text">Ultima Entrada: {produto.ultima_entrada}</p>
             <p className="card-text">Ultima Saida: {produto.ultima_saida}</p>
-            <div class="btn-group" role="group" aria-label="Opções de Produto">
+            <div className="btn-group" role="group" aria-label="Opções de Produto">
                 <button onClick={()=>setEditando(prevEditando => !prevEditando)} className="btn btn-primary me-3">Editar Produto</button>
                 <button onClick={()=>verEstoque()} className="btn btn-warning">Ver Estoque</button>
             </div>
