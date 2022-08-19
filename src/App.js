@@ -6,6 +6,7 @@ import VerProduto from './components/VerProduto'
 import Estoque from './components/Estoque'
 import AjustarEstoque from './components/AjustarEstoque'
 import Historico from './components/Historico'
+import ConsultarHistoricos from './components/ConsultarHistoricos'
 
 export default function App () {
   const [views, setViews] = React.useState({
@@ -15,6 +16,7 @@ export default function App () {
     'gerenciarestoques':null, /* id do produto para ver estoque ou boolean para ver todos os estoques*/
     'ajustarestoque':false,
     'verhistorico':null, /* id do produto */
+    'consultarhistoricos':false
   })
 
   return (
@@ -26,6 +28,7 @@ export default function App () {
       {views.gerenciarestoques && <Estoque setViews={setViews} views={views}/>}
       {views.ajustarestoque && <AjustarEstoque estoque={views.ajustarestoque} setViews={setViews}/>}
       {views.verhistorico && <Historico produto={views.verhistorico} setViews={setViews}/>}
+      {views.consultarhistoricos && <ConsultarHistoricos/>}
     </React.StrictMode>
   )
 }
