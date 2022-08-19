@@ -13,6 +13,7 @@ export default function VerProduto(props){
             'gerenciarestoques':null, 
             'ajustarestoque': produto ? produto.estoque : null,
             'verhistorico':null,
+            'consultarhistoricos':false,
         })
     }
     function verHistorico(){
@@ -23,6 +24,7 @@ export default function VerProduto(props){
             'gerenciarestoques':null, 
             'ajustarestoque': null,
             'verhistorico':produto.id,
+            'consultarhistoricos':false,
         })
     }
     React.useEffect(()=> {
