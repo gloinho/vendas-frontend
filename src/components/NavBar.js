@@ -9,7 +9,9 @@ export default function NavBar(props){
                 'todos':false,
                 'verproduto':false,
                 'gerenciarestoques':false,
-                'ajustarestoque':false
+                'ajustarestoque':false,
+                'verhistorico':null,
+                'consultarhistoricos':false
             })
         }
         else if(name === 'todos-produtos'){
@@ -18,7 +20,9 @@ export default function NavBar(props){
                 'todos':true,
                 'verproduto':false,
                 'gerenciarestoques':false,
-                'ajustarestoque':false
+                'ajustarestoque':false,
+                'verhistorico':null,
+                'consultarhistoricos':false
             })
         }
         else if(name === 'gerenciar-estoques'){
@@ -27,7 +31,21 @@ export default function NavBar(props){
                 'todos':false,
                 'verproduto':false,
                 'gerenciarestoques':true,
-                'ajustarestoque':false
+                'ajustarestoque':false,
+                'verhistorico':null,
+                'consultarhistoricos':false
+            })
+        }
+
+        else if(name === 'consultar-historicos'){
+            props.setviews({
+                'cadastro':false,
+                'todos':false,
+                'verproduto':false,
+                'gerenciarestoques':false,
+                'ajustarestoque':false,
+                'verhistorico':null,
+                'consultarhistoricos':true
             })
         }
     }
@@ -43,6 +61,9 @@ export default function NavBar(props){
             </li>
             <li className='nav-item'>
                 <button name ="gerenciar-estoques" className='nav-link ms-3' onClick={(event)=>changeView(event)}>Gerenciar Estoques</button>
+            </li>
+            <li className='nav-item'>
+                <button name ="consultar-historicos" className='nav-link ms-3' onClick={(event)=>changeView(event)}>Consultar Historicos</button>
             </li>
         </ul>
     </nav>
