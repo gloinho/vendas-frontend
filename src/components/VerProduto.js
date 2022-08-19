@@ -6,12 +6,23 @@ export default function VerProduto(props){
     const [editando, setEditando] = React.useState(false)
     
     function verEstoque(){
-        props.verestoque({
+        props.setviews({
             'cadastro':false,
             'todos':false,
             'verproduto':null, 
             'gerenciarestoques':null, 
             'ajustarestoque': produto ? produto.estoque : null,
+            'verhistorico':null,
+        })
+    }
+    function verHistorico(){
+        props.setviews({
+            'cadastro':false,
+            'todos':false,
+            'verproduto':null, 
+            'gerenciarestoques':null, 
+            'ajustarestoque': null,
+            'verhistorico':produto.id,
         })
     }
     React.useEffect(()=> {
@@ -35,6 +46,7 @@ export default function VerProduto(props){
             <div className="btn-group" role="group" aria-label="Opções de Produto">
                 <button onClick={()=>setEditando(prevEditando => !prevEditando)} className="btn btn-primary me-3">Editar Produto</button>
                 <button onClick={()=>verEstoque()} className="btn btn-warning">Ver Estoque</button>
+                <button onClick={()=>verHistorico()} className="btn btn-secondary ms-3">Ver Histórico</button>
             </div>
         </div>
     </div>
