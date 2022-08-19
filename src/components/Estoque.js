@@ -11,6 +11,8 @@ export default function Estoque(props){
             'verproduto':null, /* id do produto */
             'gerenciarestoques':false,
             'ajustarestoque':id,
+            'verhistorico':null,
+            'consultarhistoricos':false,
         })
         
     }
@@ -24,7 +26,7 @@ export default function Estoque(props){
     return <div>
                 <FiltrarEstoque setEstoques={setEstoques}/>
                 {estoques && estoques.map(({id, nome_do_produto,produto, quantidade, ultima_entrada,ultima_saida})=> 
-                <div className="card mt-3" key={id}>
+                <div className="card mt-3 ms-3 me-3" key={id}>
                 <div className="card-body">
                     <h5 className="card-title">Estoque do Produto {nome_do_produto} (id: {produto})</h5>
                     <p className="card-text">Quantidade Atual: {quantidade}</p>
