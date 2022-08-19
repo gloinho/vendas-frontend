@@ -15,13 +15,14 @@ export default function Historico(props){
             'verproduto':props.produto, 
             'gerenciarestoques':null, 
             'ajustarestoque': false,
-            'verhistorico':null})
+            'verhistorico':null,
+            'consultarhistoricos':false})
     }
     return <div>
         <h1>Historico do produto id:{props.produto}</h1>
-        <button className="btn btn-primary mb-3" onClick={verProduto} >Ver Produto</button>
+        <button className="btn btn-primary mb-3 ms-3" onClick={verProduto} >Ver Produto</button>
         {historico && historico.map(({id,tipo, data, quantidade})=>( 
-            <div className="card mb-3" key={id}>
+            <div className="card mb-3 ms-3" key={id}>
                 <div className="card-body">
                     <h5 className="card-title">Data: {data}</h5>
                     <p className="card-text">Tipo: {tipo}</p>
