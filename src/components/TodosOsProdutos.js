@@ -10,6 +10,10 @@ export default function TodosOsProdutos(props){
             'cadastro':false,
             'todos':false,
             'verproduto':id,
+            'gerenciarestoques':null, 
+            'ajustarestoque':false,
+            'verhistorico':null,
+            'consultarhistoricos':false,
         })
     }
 
