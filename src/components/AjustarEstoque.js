@@ -58,7 +58,9 @@ export default function AjustarEstoque(props){
         'todos':false,
         'verproduto': thisEstoque && thisEstoque.produto,
         'gerenciarestoques':null, 
-        'ajustarestoque':false,})
+        'ajustarestoque':false,
+        'verhistorico':null,
+        'consultarhistoricos':false})
     }
     return <div>
     {thisEstoque && 
