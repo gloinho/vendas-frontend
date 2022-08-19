@@ -68,6 +68,6 @@ export default function FiltrarProdutos(props){
                 </div>
                 <input onChange={handleChange} name="estoque__ultima_saida__lt" type="date" className="form-control" aria-label="Até" aria-describedby="basic-addon1"></input>
              </div>
-            <button  className="btn btn-outline-secondary" type="submit">Pesquisar</button> 
+            <button  className="btn btn-dark" type="submit">Pesquisar</button> 
         </form>
 }
